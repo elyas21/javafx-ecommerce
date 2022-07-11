@@ -1,21 +1,16 @@
 package com.example.demo2.Controller;
 
-import com.example.demo2.CommonObjects;
 import com.example.demo2.DatabaseConnectio;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.HBox;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
-import java.io.IOException;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
 
 public class AddItemController {
@@ -24,7 +19,7 @@ public class AddItemController {
     private TextField ItemBrand;
 
     @FXML
-    private TextField ItemImageUrl;
+    private Button chooseImage;
 
     @FXML
     private TextField ItemName;
@@ -62,9 +57,35 @@ public class AddItemController {
         }
     }
 
+    public void onChooseImage() {
 
+    }
+    public void saveFile(){
+//                FileChooser fileChooser = new FileChooser();
+//        fileChooser.setTitle("Save file");
+//        fileChooser.setInitialFileName("defaultFileName");
+//        File savedFile = fileChooser.showSaveDialog(savedStage);
+//
+//        if (savedFile != null) {
+//
+//            try {
+//                saveFileRoutine(savedFile);
+//            }
+//            catch(IOException e) {
+//
+//                e.printStackTrace();
+//                actionStatus.setText("An ERROR occurred while saving the file!");
+//                return;
+//            }
+//
+//            actionStatus.setText("File saved: " + savedFile.toString());
+//        }
+//        else {
+//            actionStatus.setText("File save cancelled.");
+//        }
+    }
 
-    public void validateItemAdd(){
+    public void validateItemAdd() {
         DatabaseConnectio DBcon = new DatabaseConnectio();
         Connection cond = DBcon.getConnection();
 
@@ -73,28 +94,26 @@ public class AddItemController {
         String price = ItemPrice.getText();
         String stockAmount = ItemPrice.getText();
         String soldItem = ItemPrice.getText();
-        String imgUrl = ItemImageUrl.getText();
 
 
 //        String verifyLogin = " select count(1) from user_account where user_name = '" + userNameTextFiled.getText() + "' And password ='" + userNamePasswordFiled.getText() + "'";
         String itemsToAdd = " insert into Item (name,brand,price,imgUrl,stockAmount,soldAmount) values ('";
-        String values = itemName +"','" + brandName+"','" + price +"','" +"imgUrl"+"','" +stockAmount+"','" + 0 +"')";
+        String values = itemName + "','" + brandName + "','" + price + "','" + "imgUrl" + "','" + stockAmount + "','" + 0 + "')";
 
         String addQuery = itemsToAdd + values;
         try {
             System.out.println(addQuery);
-            Statement statement  = cond.createStatement();
+            Statement statement = cond.createStatement();
             statement.executeUpdate(addQuery);
 
-                ItemAddMessegeLabel.setText(itemName + "Add successfully");
-                System.out.println("success");
+            ItemAddMessegeLabel.setText(itemName + "Add successfully");
+            System.out.println("success");
 
             ItemName.setText("");
             ItemBrand.setText("");
             ItemPrice.setText("");
             ItemPrice.setText("");
             ItemPrice.setText("");
-            ItemImageUrl.setText("");
 
         } catch (Exception e) {
             System.out.println("failure");

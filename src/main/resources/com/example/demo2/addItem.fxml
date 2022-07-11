@@ -16,13 +16,13 @@
             <Label layoutX="45.0" layoutY="117.0" text="Stock" />
             <TextField fx:id="ItemStok" layoutX="98.0" layoutY="113.0" />
             <Label layoutX="45.0" layoutY="153.0" text="Photo" />
-            <TextField fx:id="ItemImageUrl" layoutX="98.0" layoutY="149.0" />
             <Button fx:id="ItemAdd" layoutX="98.0" layoutY="220.0" mnemonicParsing="false" onAction="#OnItemAddd" text="Add" />
             <Label fx:id="ItemNameErrorLabel" layoutX="285.0" layoutY="41.0" prefHeight="16.0" prefWidth="151.0" />
             <Label fx:id="ItemBrandErrorLabel" layoutX="285.0" layoutY="77.0" prefHeight="16.0" prefWidth="151.0" />
             <Label fx:id="ItemAddMessegeLabel" layoutX="118.0" layoutY="269.0" prefHeight="16.0" prefWidth="151.0" />
             <Label layoutX="45.0" layoutY="188.0" text="price" />
             <TextField fx:id="ItemPrice" layoutX="98.0" layoutY="184.0" />
+            <Button fx:id="chooseImage" layoutX="98.0" layoutY="149.0" mnemonicParsing="false" onAction="#onChooseImage" prefHeight="24.0" prefWidth="171.0" text="Choose Image" />
          </children>
       </AnchorPane>
    </children>

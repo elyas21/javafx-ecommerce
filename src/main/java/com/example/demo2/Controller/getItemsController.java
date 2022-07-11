@@ -80,7 +80,7 @@ public class getItemsController implements Initializable {
                         queryResult.getString("brand"),
                         queryResult.getString("price"),
                         queryResult.getString("stockAmount"),
-                        queryResult.getString("stockAmount")));
+                        queryResult.getString("soldAmount")));
             }
 
         } catch (SQLException e) {

@@ -27,5 +27,6 @@
          </children>
       </AnchorPane>
       <Label fx:id="errornowordLabel" layoutX="185.0" layoutY="161.0" prefHeight="16.0" prefWidth="171.0" />
+      <Label fx:id="ItemSoldInfo" layoutX="282.0" layoutY="36.0" />
    </children>
 </AnchorPane>
