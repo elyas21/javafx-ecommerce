@@ -31,16 +31,15 @@ public class MainController {
             mainBox.getChildren().add(panelHome);
         } catch (IOException e){
             e.printStackTrace();
-        }
+         }
 
     }
 
     public  void opSellItem(){
-        FXMLLoader fxmlLoader1 = new FXMLLoader(getClass().getResource("sellItem.fxml"));
+        FXMLLoader fxmlLoader1 = new FXMLLoader(getClass()
+                        .getResource("sellItem.fxml"));
         try{
-
             AnchorPane PaneGetItems = (AnchorPane) fxmlLoader1.load();
-
             if (mainBox.getChildren().size() > 1){
                 mainBox.getChildren().remove(1);
             }

@@ -94,8 +94,6 @@ public class AddItemController {
         String price = ItemPrice.getText();
         String stockAmount = ItemPrice.getText();
         String soldItem = ItemPrice.getText();
-
-
 //        String verifyLogin = " select count(1) from user_account where user_name = '" + userNameTextFiled.getText() + "' And password ='" + userNamePasswordFiled.getText() + "'";
         String itemsToAdd = " insert into Item (name,brand,price,imgUrl,stockAmount,soldAmount) values ('";
         String values = itemName + "','" + brandName + "','" + price + "','" + "imgUrl" + "','" + stockAmount + "','" + 0 + "')";

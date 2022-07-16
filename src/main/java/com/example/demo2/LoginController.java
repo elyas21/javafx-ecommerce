@@ -37,9 +37,9 @@ public class LoginController implements Initializable {
     @FXML
     private  Label loginMessageLabel;
     @FXML
-    private ImageView brandingImageView;
+    public ImageView brandingImageView;
     @FXML
-    private ImageView lockImageView;
+    public ImageView lockImageView;
     @FXML
     private TextField userNameTextFiled;
     @FXML
@@ -47,20 +47,22 @@ public class LoginController implements Initializable {
 
     @Override
     public  void initialize(URL url, ResourceBundle resourceBundle){
-        File brandingFile = new File("imgs/cart1.jpg");
-        Image brandingImage = new Image(brandingFile.toURI().toString());
-        brandingImageView.setImage(brandingImage);
+//        File brandingFile = new File("imgs/cart1.jpg");
+//        Image brandingImage = new Image(brandingFile.toURI().toString());
+//        System.out.println(brandingImage);
+//        brandingImageView.setImage(brandingImage);
 
         File lockFile = new File("imgs/lock.jpg");
         Image lockImage = new Image(lockFile.toURI().toString());
-        brandingImageView.setImage(lockImage);
+        System.out.println(lockImage);
+        lockImageView.setImage(lockImage);
     }
 
     public void loginButtonOnAction(ActionEvent e){
 
 
-        if(userNameTextFiled.getText().isBlank() == false && userNamePasswordFiled.getText().isBlank() == false) {
-//            loginMessageLabel.setText("you try to login");
+        if(userNameTextFiled.getText().isBlank() == false &&
+                userNamePasswordFiled.getText().isBlank() == false) {
             validateLogin();
         } else {
 
@@ -70,7 +72,6 @@ public class LoginController implements Initializable {
     public void validateLogin(){
         DatabaseConnectio DBcon = new DatabaseConnectio();
         Connection cond = DBcon.getConnection();
-
 
         String verifyLogin = " select count(1) from user_account where user_name = '" + userNameTextFiled.getText() + "' And password ='" + userNamePasswordFiled.getText() + "'";
         try {
@@ -82,8 +83,6 @@ public class LoginController implements Initializable {
                     loginMessageLabel.setText("congratulations");
                     final Stage oldstage = (Stage) loginButton.getScene().getWindow();
                     oldstage.close();
-
-
                     FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("main.fxml"));
                     HBox mainBox = (HBox) fxmlLoader.load();
                     Stage stage = new Stage();
@@ -107,5 +106,9 @@ public class LoginController implements Initializable {
             throw new RuntimeException(e);
         }
     }
+    public  void onCancle(){
+        Stage stage = (Stage) cancelButton.getScene().getWindow();
+        stage.close();
 
+    }
 }

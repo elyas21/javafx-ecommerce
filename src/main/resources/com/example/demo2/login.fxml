@@ -12,11 +12,11 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="520.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo2.LoginController">
    <left>
-      <AnchorPane prefHeight="407.0" prefWidth="219.0" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="407.0" prefWidth="219.0" style="-fx-background-color: #FA3245;" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fx:id="brandingImageView" fitHeight="407.0" fitWidth="228.0" layoutY="-14.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="brandingImageView" fitHeight="382.0" fitWidth="219.0" layoutX="10.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@imgs/cart1.jpg" />
+                  <Image url="@imgs/cart1.jpg" />  
                </image>
             </ImageView>
          </children>
@@ -39,7 +39,7 @@
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button fx:id="cancelButton" layoutX="14.0" layoutY="325.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="266.0" style="-fx-background-color: #3584AB;" text="Cancel" textFill="#f7f24d">
+            <Button fx:id="cancelButton" layoutX="14.0" layoutY="325.0" mnemonicParsing="false" onAction="#onCancle" prefHeight="24.0" prefWidth="266.0" style="-fx-background-color: #3584AB;" text="Cancel" textFill="#f7f24d">
                <font>
                   <Font size="14.0" />
                </font>
